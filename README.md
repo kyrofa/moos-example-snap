@@ -1,2 +1,3 @@
 # moos-snap
-An example MOOS application packages as a .snap.
+
+An example MOOS application packaged as a .snap.

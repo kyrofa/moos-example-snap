@@ -1,0 +1,30 @@
+name: moos-example
+version: 1
+vendor: me <me@me.com>
+summary: MOOS Example
+description: Simple ping/pong example for MOOS
+icon: icon.svg
+
+services:
+  MOOSDB:
+    start: MOOSDB
+    description: MOOS router
+
+binaries:
+  ping:
+    exec: ex1010 --ping
+
+  pong:
+    exec: ex1010
+
+parts:
+  core-moos:
+    plugin: cmake
+    source: https://github.com/themoos/core-moos/archive/10.0.2.a-release.tar.gz
+    configflags:
+      - -DCMAKE_INSTALL_PREFIX=/
+
+  moos-example:
+    plugin: cmake
+    source: src/
+    after: [core-moos]
